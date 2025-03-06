@@ -1,0 +1,26 @@
+.innerText {
+  font-size: 8px;
+}
+
+.buttonBg{
+    background-color: #757575;
+}
+
+.custom-input {
+  background: transparent !important;
+  color: white !important;
+  border: none;
+  border-bottom: 1px solid #757575; /* Only bottom border */
+  border-radius: 0; /* Removes any border rounding */
+  outline: none; /* Removes default focus outline */
+  text-align: center;
+}
+
+.custom-input:focus {
+  box-shadow: none; /* Removes Bootstrap default shadow on focus */
+  border-bottom: 1px solid #d3d3d3; /* Keeps border visible on focus */
+}
+
+.custom-input::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Light white placeholder */
+}
