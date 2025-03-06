@@ -3,6 +3,9 @@ import "../pages/DialerPage/style.css";
 import { MdCall } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
+
 
 function DialerPage() {
     const [inputValue, setInputValue] = useState("");
@@ -10,6 +13,8 @@ function DialerPage() {
     const handleButtonClick = (number) => {
       setInputValue((prev) => prev + number);
     };
+
+    const navigator = useNavigate()
 
     useEffect(() => {
         const handleKeyPress = (event) => {
@@ -29,35 +34,37 @@ function DialerPage() {
 
   return (
     <>
-      <div className="d-flex flex-column mb-3">
-        <div className="inpDiv mb-2">
-          <input type="text" className="custom-input" value={inputValue}/>
+        <div className="d-flex flex-column mb-3">
+            <div className="inpDiv mb-2">
+                <input type="text" className="custom-input" value={inputValue}/>
+            </div>
+            <div className="d-flex mb-2 justify-content-around divsDiv">
+                <button onClick={() => handleButtonClick(1)}  className="rounded-circle text-white buttonBg">1</button>
+                <button onClick={() => handleButtonClick(2)}  className="rounded-circle  text-white buttonBg">2</button>
+                <button onClick={() => handleButtonClick(3)}  className="rounded-circle  text-white buttonBg">3</button>
+            </div>
+            <div className="d-flex mb-2 justify-content-around divsDiv">
+                <button onClick={() => handleButtonClick(4)} className="rounded-circle text-white buttonBg">4</button>
+                <button onClick={() => handleButtonClick(5)} className="rounded-circle text-white buttonBg">5</button>
+                <button onClick={() => handleButtonClick(6)} className="rounded-circle  text-white buttonBg">6</button>
+            </div>
+            <div className="d-flex mb-2 justify-content-around divsDiv">
+                <button onClick={() => handleButtonClick(7)} className="rounded-circle text-white buttonBg">7</button>
+                <button onClick={() => handleButtonClick(8)} className="rounded-circle text-white buttonBg">8</button>
+                <button onClick={() => handleButtonClick(9)} className="rounded-circle text-white buttonBg">9</button>
+            </div>
+            <div className="d-flex mb-2 justify-content-around divsDiv">
+                <button onClick={() => handleButtonClick("*")} className="rounded-circle text-white buttonBg ">*</button>
+                <button onClick={() => handleButtonClick(0)} className="rounded-circle text-white buttonBg">0</button>
+                <button onClick={() => handleButtonClick("#")} className="rounded-circle text-white buttonBg">#</button>
+            </div>
+            <div className="functionals">
+                <NavLink to="/callscreen">
+                    <button  className="rounded-circle text-white bg-success mx-2 "><MdCall /></button>
+                </NavLink>
+                <button  className="rounded-circle text-white bg-success mx-2"><FaVideo /></button>
+            </div>
         </div>
-        <div className="d-flex mb-2 justify-content-around divsDiv">
-          <button onClick={() => handleButtonClick(1)}  className="rounded-circle text-white px-4 py-2 buttonBg"><div>1</div></button>
-          <button onClick={() => handleButtonClick(2)}  className="rounded-circle  text-white buttonBg"><div>2</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick(3)}  className="rounded-circle  text-white buttonBg"><div>3</div><div className="innerText">ABC</div></button>
-        </div>
-        <div className="d-flex mb-2 justify-content-around divsDiv">
-          <button onClick={() => handleButtonClick(4)} className="rounded-circle text-white buttonBg"><div>4</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick(5)} className="rounded-circle text-white buttonBg"><div>5</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick(6)} className="rounded-circle  text-white buttonBg"><div>6</div><div className="innerText">ABC</div></button>
-        </div>
-        <div className="d-flex mb-2 justify-content-around divsDiv">
-          <button onClick={() => handleButtonClick(7)} className="rounded-circle text-white buttonBg"><div>7</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick(8)} className="rounded-circle text-white buttonBg"><div>8</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick(9)} className="rounded-circle text-white buttonBg"><div>9</div><div className="innerText">ABC</div></button>
-        </div>
-        <div className="d-flex mb-2 justify-content-around divsDiv">
-          <button onClick={() => handleButtonClick("*")} className="rounded-circle text-white buttonBg px-4 py-2"><div>*</div></button>
-          <button onClick={() => handleButtonClick(0)} className="rounded-circle text-white buttonBg"><div>0</div><div className="innerText">ABC</div></button>
-          <button onClick={() => handleButtonClick("#")} className="rounded-circle text-white buttonBg q px-4 py-2"><div>#</div></button>
-        </div>
-        <div className="functionals">
-            <button  className="rounded-circle text-white bg-success px-3 py-2 fs-4 mx-2 "><MdCall /></button>
-            <button  className="rounded-circle text-white bg-success px-3 py-2 fs-4 mx-2"><div className="p-0"><FaVideo /></div></button>
-        </div>
-      </div>
     </>
   );
 }

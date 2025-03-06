@@ -18,7 +18,7 @@
 
 .custom-input:focus {
   box-shadow: none; /* Removes Bootstrap default shadow on focus */
-  border-bottom: 1px solid #d3d3d3; /* Keeps border visible on focus */
+  border-bottom: 1px solid #757575; /* Keeps border visible on focus */
 }
 
 .custom-input::placeholder {
